@@ -8,6 +8,7 @@
     "index.d.ts"
   ],
   "scripts": {
+    "bench": "_matcha bench.js",
     "lint": "eslint '**/*.js'",
     "prepublish": "npm run lint && npm test",
     "test": "mocha test.js"
@@ -35,7 +36,14 @@
   "devDependencies": {
     "@yomguithereal/eslint-config": "^4.0.0",
     "eslint": "^6.7.2",
-    "mocha": "^6.2.2"
+    "fast-levenshtein": "^2.0.6",
+    "js-levenshtein": "^1.1.6",
+    "leven": "^3.1.0",
+    "levenshtein-edit-distance": "^2.0.4",
+    "matcha": "^0.7.0",
+    "mocha": "^6.2.2",
+    "node-levenshtein": "^2.0.13",
+    "talisman": "^0.21.0"
   },
   "eslintConfig": {
     "extends": "@yomguithereal/eslint-config"

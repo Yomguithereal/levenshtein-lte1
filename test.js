@@ -56,13 +56,13 @@ var HELLO_WORDS = [
   'TBONJOUR'
 ];
 
-var HELLO_WORDS_TRANSPOSITIONS = [
-  'OBNJOUR',
-  'BNOJOUR',
-  'BOJNOUR',
-  'BONOJUR',
-  'BONJORU'
-];
+// var HELLO_WORDS_TRANSPOSITIONS = [
+//   'OBNJOUR',
+//   'BNOJOUR',
+//   'BOJNOUR',
+//   'BONOJUR',
+//   'BONJORU'
+// ];
 
 var LEVENSHTEIN_LTE1_TESTS = [
   ['BONJOUR', 'BONJOURE', true],
