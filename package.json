@@ -1,0 +1,42 @@
+{
+  "name": "levenshtein-lte1",
+  "version": "1.5.0",
+  "description": "A JavaScript streamlined implementation of Levenshtein distance for k <= 1.",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint '**/*.js'",
+    "prepublish": "npm run lint && npm test",
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yomguithereal/levenshtein-lte1.git"
+  },
+  "keywords": [
+    "levenshtein",
+    "levenshtein",
+    "damerau-levenshtein"
+  ],
+  "contributors": [
+    {
+      "name": "Guillaume Plique",
+      "url": "http://github.com/Yomguithereal"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yomguithereal/levenshtein-lte1/issues"
+  },
+  "homepage": "https://github.com/Yomguithereal/levenshtein-lte1#readme",
+  "devDependencies": {
+    "@yomguithereal/eslint-config": "^4.0.0",
+    "eslint": "^6.7.2",
+    "mocha": "^6.2.2"
+  },
+  "eslintConfig": {
+    "extends": "@yomguithereal/eslint-config"
+  }
+}
