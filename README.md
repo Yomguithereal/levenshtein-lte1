@@ -77,7 +77,7 @@ I only benchmarked words because it usually does not make sense to test large st
 2000 words, length max=20 min=3 avr=9.5
 
   145,110 op/s » levenshtein-lte1
-  19,183 op/s » talisman-limited
+   19,183 op/s » talisman-limited
     3,126 op/s » node-levenshtein
     2,557 op/s » js-levenshtein
     2,115 op/s » talisman
