@@ -6,13 +6,13 @@ The [Levensthein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) i
 
 But, most of the time, people just want to know whether the Levenshtein distance between two strings is below a given threshold. What's more, especially when targeting the English language, this threshold is often 1 or 2 (1 usually for the very similar [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance), for the reason explained in [this](https://dl.acm.org/citation.cfm?doid=363958.363994) seminal paper).
 
-But people often miss that you can develop a custom implementation of the Levenshtein & Damerau-Levensthein distance that won't go over 1 that can be way more performant.
+But people often miss that you can develop a custom implementation of the Levenshtein & Damerau-Levensthein distance limited to 1 that can be way more performant.
 
 This library exposes such an implementation for the JavaScript language. It runs in `O(m)` time, `m` being the length of the shortest string. It also does not need to rely on auxiliary memory.
 
 ## Installation
 
-Note that the library comes with its TypeScript definitions.
+The library comes along with its own TypeScript definition files.
 
 ```
 npm install levenshtein-lte1
