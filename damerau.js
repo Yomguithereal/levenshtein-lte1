@@ -1,12 +1,12 @@
 /**
- * Function returning Levenshtein distance between two strings if it is less
- * than or equal to 1, else returning Infinity.
+ * Function returning Damerau-Levenshtein distance between two strings if it is
+ * less than or equal to 1, else returning Infinity.
  *
  * @param {string|Array} A - First sequence.
  * @param {string|Array} B - Second sequence.
- * @param {number}         - Levenshtein distance if <= 1 else Infinity.
+ * @param {number}         - Damerau-Levenshtein distance if <= 1 else Infinity.
  */
-function levenshteinLte1(A, B) {
+function damerauLevenshteinLte1(A, B) {
 
   // Are both strings the same?
   if (A === B)
@@ -32,7 +32,10 @@ function levenshteinLte1(A, B) {
 
   var cost = 0,
       i = 0,
-      j = 0;
+      j = 0,
+      t,
+      a,
+      b;
 
   // Addition
   if (delta === 1) {
@@ -53,13 +56,25 @@ function levenshteinLte1(A, B) {
     return 1;
   }
 
-  // Substitution
+  // Substitution or transposition
   while (i < la) {
-    if (A[i] !== B[i]) {
+    a = A[i];
+    b = B[i];
+
+    if (a !== b) {
       if (cost === 1)
         return Infinity;
 
       cost = 1;
+
+      // Transposition
+      t = i + 1;
+
+      if (t < la && A[t] === b && B[t] === a) {
+        i += 2;
+        j += 2;
+        continue;
+      }
     }
 
     i++;
@@ -68,4 +83,4 @@ function levenshteinLte1(A, B) {
   return cost;
 }
 
-module.exports = levenshteinLte1;
+module.exports = damerauLevenshteinLte1;

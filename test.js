@@ -4,6 +4,7 @@
  */
 var assert = require('assert');
 var levenshteinLte1 = require('./index.js');
+var damerauLevenshteinLte1 = require('./damerau.js');
 
 var BASIC_TESTS = [
   [['b', 'o', 'o', 'k'], ['b', 'a', 'c', 'k'], 2],
@@ -56,13 +57,13 @@ var HELLO_WORDS = [
   'TBONJOUR'
 ];
 
-// var HELLO_WORDS_TRANSPOSITIONS = [
-//   'OBNJOUR',
-//   'BNOJOUR',
-//   'BOJNOUR',
-//   'BONOJUR',
-//   'BONJORU'
-// ];
+var TRANSPOSITIONS = [
+  'OBNJOUR',
+  'BNOJOUR',
+  'BOJNOUR',
+  'BONOJUR',
+  'BONJORU'
+];
 
 var LEVENSHTEIN_LTE1_TESTS = [
   ['BONJOUR', 'BONJOURE', true],
@@ -111,6 +112,39 @@ describe('levenshtein-lte1', function() {
     LEVENSHTEIN_LTE1_TESTS.forEach(function(test) {
       assert.strictEqual(
         levenshteinLte1(test[0], test[1]) <= 1,
+        test[2]
+      );
+    });
+  });
+});
+
+describe('damerau-levenshtein-lte1', function() {
+  it('should work for trivial cases.', function() {
+    assert.strictEqual(damerauLevenshteinLte1('BONJOUR', 'BONJOUR'), 0);
+    assert.strictEqual(damerauLevenshteinLte1('BOJNOUR', 'BONJOUR'), 1);
+    assert.strictEqual(damerauLevenshteinLte1('HELLO', 'THISISVERYLONG'), Infinity);
+  });
+
+  it('should work with any kind of operations.', function() {
+    HELLO_WORDS.concat(TRANSPOSITIONS).forEach(function(word) {
+      assert.strictEqual(damerauLevenshteinLte1(word, 'BONJOUR') <= 1, true, word);
+    });
+  });
+
+  it('should handle generic cases.', function() {
+    BASIC_TESTS.forEach(function(test) {
+      assert.strictEqual(
+        damerauLevenshteinLte1(test[0], test[1]),
+        test[2] <= 1 ? test[2] : Infinity,
+        test
+      );
+    });
+  });
+
+  it('should handle typical cases.', function() {
+    LEVENSHTEIN_LTE1_TESTS.forEach(function(test) {
+      assert.strictEqual(
+        damerauLevenshteinLte1(test[0], test[1]) <= 1,
         test[2]
       );
     });

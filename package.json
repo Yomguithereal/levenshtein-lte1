@@ -4,6 +4,8 @@
   "description": "A JavaScript streamlined implementation of Levenshtein distance for k <= 1.",
   "main": "index.js",
   "files": [
+    "damerau.js",
+    "damerau.d.ts",
     "index.js",
     "index.d.ts"
   ],
