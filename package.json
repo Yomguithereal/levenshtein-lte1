@@ -20,6 +20,7 @@
     "url": "git+https://github.com/Yomguithereal/levenshtein-lte1.git"
   },
   "keywords": [
+    "damerau",
     "levenshtein",
     "levenshtein",
     "damerau-levenshtein"
