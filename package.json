@@ -1,7 +1,7 @@
 {
   "name": "levenshtein-lte1",
-  "version": "1.5.0",
-  "description": "A JavaScript streamlined implementation of Levenshtein distance for k <= 1.",
+  "version": "1.0.0",
+  "description": "A streamlined JavaScript implementation of Levenshtein distance for k <= 1.",
   "main": "index.js",
   "files": [
     "damerau.js",
